@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<NotepadPlus>
+	<!-- An AutoComplete file for Usecode C -->
+	
+	<!--
+	Environment specifies how the language should be interpreted. ignoreCase makes autocomplete
+	ignore any casing, start and stopFunc specify what chars a function starts and stops with.
+	param specifies parameter separator and terminal can be used to specify a character that stops
+	any function. Using the same character for different functions results in undefined behaviour.
+	
+	05/11/2009
+	The basic word character are : A-Z a-z 0-9 and '_' 
+	If your function name contains other characters,
+	add your characters in "additionalWordChar" attribute (without separator)
+	in order to make calltip hint work
+	-->
+	<!-- Environment ignoreCase="no" startFunc="(" stopFunc=")" paramSeparator="," terminal=";" additionalWordChar=""/>
+	-->
+	<!--
+	The following items should be alphabetically ordered.
+	func="yes" means the keyword should be treated as a fuction, and thus can be used in the parameter
+	calltip system. If this is the case, the retVal attribute specifies the return value/type. Any
+	following Param tag specifies a parameter, they must be in order. The name attributes specifies
+	the parameter name.
+	-->
+    <!-- <Environment ignoreCase="no" startFunc="(" stopFunc=")" paramSeparator="," terminal=";" additionalWordChar="" /> -->
+	<Environment ignoreCase="yes" startFunc="(&quot;[" stopFunc="]&quot;)" paramSeparator="," terminal=";" additionalWordChar="" />
+    <AutoComplete language="UsecodeC">
+
+		<KeyWord name="#include" />
+		<KeyWord name="abort;" />
+		<KeyWord name="break;" />
+		<KeyWord name="event" />
+		<KeyWord name="DEATH" />
+		<KeyWord name="DOUBLECLICK" />
+		<KeyWord name="EGG" />
+		<KeyWord name="PATH_FAILURE" />
+		<KeyWord name="PATH_SUCCESS" />
+		<KeyWord name="POLYMORPHED" />
+		<KeyWord name="PROXIMITY" />
+		<KeyWord name="READIED" />
+		<KeyWord name="SCRIPTED" />
+		<KeyWord name="SCRIPTED_A" />
+		<KeyWord name="SCRIPTED_B" />
+		<KeyWord name="STARTED_TALKING" />
+
+		<!-- New -->
+		<!-- Notepad++ is unforgiving with any XML errors. All autocompletes for the language will fail. -->
+		<KeyWord name="UI_add_answer" func="yes">
+			<Overload retVal="void" descr="Adds an option to the conversation.
+			Newest option will appear last.">
+				<Param name="&quot;text&quot;" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_add_cont_items" func="yes">
+			<Overload retVal="int" descr="Adds an item to a container.
+			Best practice is to set a variable before this command, and have that be the &quot;object&quot;.">
+				<Param name="object" />
+				<Param name="count" />		
+				<Param name="shape" />
+				<Param name="quality" />
+				<Param name="frame" />
+				<Param name="temp" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_add_party_items" func="yes">
+			<Overload retVal="" descr="Give the Party as many of the shape as it can carry.">
+				<Param name="count" />		
+				<Param name="shape" />
+				<Param name="quality" />
+				<Param name="frame" />
+				<Param name="temp" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_add_spell" func="yes">
+			<Overload retVal="bool" descr="Adds a spell to a spellbook.
+			Returns false if the supplied object is not a spellbook or if it already has the spell; true otherwise.">
+				<Param name="spell_number" />
+				<Param name="always_zero" />
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_add_to_keyring" func="yes">
+			<Overload retVal="" descr="Adds a key to the keyring.
+			Note that the keyring is a global object; multiple keyrings will share the same list of keys.">
+				<Param name="quality" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_add_to_party" func="yes">
+			<Overload retVal="" descr="Makes the specified NPC join the avatar's party, if there is enough room.
+			The NPC's schedule is changed to FOLLOW_AVATAR, and his/her alignment is changed to GOOD.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_advance_time" func="yes">
+			<Overload retVal="" descr="Number of game ticks that should be advanced;
+			25 ticks are equal to one game minute, and 1500 ticks are equal to one game hour.">
+				<Param name="number" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_ambient_light" func="yes">
+			<Overload retVal="" descr="Toggles on or off a permanent version of the light spell.
+			Flag specifying whether we want to turn the light on or off: true to turn it on, false to turn it off.">
+				<Param name="true_or_false" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_a_or_an" func="yes">
+			<Overload retVal="a or an" descr="Checks whether a bit of text starts with a vowel or not.
+			If the first letter of the supplied string is in the &quot;aeiouyAEIOUY&quot; set, returns 'an'; otherwise, returns 'a'.">
+				<Param name="&quot;text&quot;" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_apply_damage" func="yes">
+			<Overload retVal="int" descr="Causes random damage of a given type to the desired object, subject to armor.
+			See the full Usecode documentation for details.">
+				<Param name="base_damage" />
+				<Param name="weapon_points" />
+				<Param name="damage_type" />
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_approach_avatar" func="yes">
+			<Overload retVal="bool" descr="Makes a NPC approach the avatar at fairly high speed.
+			This intrinsic is subject to change in Exult.
+			Returns false if the NPC is dead or cannot reach the avatar, true otherwise.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_armageddon" func="yes">
+			<Overload retVal="" descr="Ends the world and kills everyone in it.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_attack_avatar" func="yes">
+			<Overload retVal="" descr="Causes everyone nearby to attack thieving avatar.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_attack_object" func="yes">
+			<Overload retVal="int" descr="Causes a NPC to attack the object with a given weapon. 
+			This intrinsic does not animate the NPC in any way; it only emulates a hit with the selected weapon.">
+				<Param name="attacker" />
+				<Param name="target" />
+				<Param name="weapon_shape" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_begin_casting_mode" func="yes">
+			<Overload retVal="" descr="Makes an NPC display casting frames until the end of its next script.
+			If the second option is omitted, shape 859 is assumed.">
+				<Param name="npc" />
+				<Param name="shape_of_casting" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_book_mode" func="yes">
+			<Overload retVal="" descr="Displays a book or scroll on screen. Text in the book or scroll is supplied through normal conversation methods.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_book_mode_ex" func="yes">
+			<Overload retVal="" descr="Displays a book or scroll on screen. Text in the book or scroll is supplied through normal conversation methods.">
+				<Param name="is_scroll" />
+				<Param name="font_number" />
+				<Param name="optional_gump_number" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_call_guards" func="yes">
+			<Overload retVal="" descr="Causes guard to come and attack a thieving avatar.
+			SI uses specific functions for the local guards.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_can_avatar_reach_pos" func="yes">
+			<Overload retVal="bool" descr="Checks if the avatar can walk from its present location to a specified position. 
+			This is similar to, but more limited than, the is_dest_reachable Exult intrinsic.
+			If a third number is omitted, Exult will assume the Z coordinate is zero.
+			Returns false if the supplied position is invalid or if the avatar cannot reach the supplied destination, true otherwise.">
+				<Param name="[x, y, z]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_cause_light" func="yes">
+			<Overload retVal="" descr="Creates a light which illuminates the screen.
+			The duration is in game minutes.">
+				<Param name="game_minutes" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_center_view" func="yes">
+			<Overload retVal="" descr="Centers the screen on a given object or NPC.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_change_npc_face0" func="yes">
+			<Overload retVal="" descr="Changes the frame of the face being displayed in slot 0 (top).
+			This would be used to switch between Spark's happy and unhappy faces.">
+				<Param name="frame" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_change_npc_face1" func="yes">
+			<Overload retVal="" descr="Changes the frame of the face being displayed in slot 1 (bottom).">
+				<Param name="frame" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_clear_answers" func="yes">
+			<Overload retVal="" descr="Clears all current dialog options.
+			Use UI_add_answer to add options.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_clear_item_flag" func="yes">
+			<Overload retVal="" descr="Clears the desired flag for the given object.
+			Many flags have immediate effects when cleared; most do not.">
+				<Param name="object" />
+				<Param name="flag" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_clear_item_say" func="yes">
+			<Overload retVal="" descr="Deletes the string (if any) being displayed near the desired object.
+			This clears barks.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_click_on_item" func="yes">
+			<Overload retVal="array" descr="Displays the targeting square and waits for the player to click on something.
+			Array returned is the object clicked, and the x, y, z coordinates.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_clone" func="yes">
+			<Overload retVal="" descr="Creates a duplicate of the supplied NPC.
+			This duplicate is always of GOOD alignment and starts with an IN_COMBAT schedule.
+			The clone is placed in a spot near to the original NPC.
+			Best used with a variable for further manipulation of the clone's settings.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_close_gump" func="yes">
+			<Overload retVal="" descr="Closes a single object's gump.
+			Best used with a variable for choosing the object first.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_close_gumps" func="yes">
+			<Overload retVal="" descr="Closes all gumps. Same as pressing Escape in Exult.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_count_objects" func="yes">
+			<Overload retVal="" descr="Counts all objects matching a given search criteria that are contained in the supplied object.
+			Use PARTY (-357) to search the whole party.
+			UI_count_objects(&quot;PARTY, SHAPE_GEM, QUALITY_ANY, FRAME_ANY&quot;);">
+				<Param name="object_to_search" />
+				<Param name="shape" />
+				<Param name="quality" />
+				<Param name="frame" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_create_barge_object" func="yes">
+			<Overload retVal="" descr="Creates a barge object with the specified width, height and direction.
+			UI_create_barge_object(6, 22, SOUTH);">
+				<Param name="x_width_in_tiles" />
+				<Param name="y_height_in_tiles" />
+				<Param name="direction" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_create_new_object2" func="yes">
+			<Overload retVal="" descr="Creates a new object with the specified shape and places it in the game world at the supplied location.
+			Coordinates can be x,y or x,y,z or x,y,z,map_number">
+				<Param name="shape" />
+				<Param name="[x, y, z]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_create_new_object" func="yes">
+			<Overload retVal="" descr="Creates a new object with the specified shape.
+			Returns an object reference to the newly created object.
+			This object is pushed into the 'last created' LIFO stack, and starts out in 'limbo';
+			it will remain there until placed either, in the game world through the 
+			'UI_update_last_created' intrinsic or inside a container through the 'UI_give_last_created' intrinsic.">
+				<Param name="shape" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_delayed_execute_usecode_array" func="yes">
+			<Overload retVal="1" descr="Animates an object according to the supplied script after a delay.
+			Works exactly like execute_usecode_array, but starts only after the specified delay.">
+				<Param name="object" />
+				<Param name="[script, script]" />
+				<Param name="delay_in_ticks" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_die_roll" func="yes">
+			<Overload retVal="int" descr="Generates a random number in the specified range.
+			Both minimum and maximum should be positive numbers.">
+				<Param name="min" />
+				<Param name="max" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_direction_from" func="yes">
+			<Overload retVal="int" descr="Gets the direction the first object should face to see the second object.
+			Best used as a variable to enable the act of turning towards the second object.
+			UI_direction_from(LORTHONDO, AVATAR);">
+				<Param name="object_looking" />
+				<Param name="object_being_viewed" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_display_area" func="yes">
+			<Overload retVal="" descr="Displays the specified location on-screen. Overlays sprite shape 10 over the screen.">
+				<Param name="[x, y, z, optional_map_number]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_display_map" func="yes">
+			<Overload retVal="" descr="Displays the main game map. Will also display the sextant crosshairs if the party has a sextant.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_display_map_ex" func="yes">
+			<Overload retVal="" descr="Displays the given map centered in the screen.">
+				<Param name="map_sprite" />
+				<Param name="show_location_crosshairs" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_display_runes" func="yes">
+			<Overload retVal="" descr="Displays the selected gump on screen and prints lines of runic text on-screen.
+			What font is used to draw the text depends on the gump shown, and is currently hard-coded (as of 2009/02/26).
+			UI_display_runes(44, [&quot;REPORT&quot;, &quot;THIS&quot;, &quot;SIGN&quot;]);">
+				<Param name="gump" />
+				<Param name="[&quot;first line&quot;, &quot;second line&quot;, &quot;third line&quot;]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_earthquake" func="yes">
+			<Overload retVal="" descr="Causes the screen to shake.
+			Also plays the earthquake sound effect at the start of the screen shake.">
+				<Param name="ticks" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_end_conversation" func="yes">
+			<Overload retVal="" descr="Shows any pending text and removes all faces from the screen. Usually safe to skip this in Exult.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_error_message" func="yes">
+			<Overload retVal="" descr="Prints the input variables to 'stdout'. Very useful for mod debugging.
+			One to twelve parameters of any type, whether or not they are arrays.
+			Please note that the original games only one parameter was accepted.
+			UI_error_message(&quot;Text to appear in stdout.txt&quot;);">
+				<Param name="&quot;text&quot;" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_execute_usecode_array" func="yes">
+			<Overload retVal="" descr="Animates an object according to the supplied script.">
+				<Param name="object" />
+				<Param name="[script, script]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_fade_palette" func="yes">
+			<Overload retVal="" descr="Causes the screen to fade to or from black.
+				The fade type, if true, fades from black; if false, fades to black.
+				UI_fade_palette(12, 1, FADE_FROM_BLACK);">
+				<Param name="ticks" />
+				<Param name="zero" />
+				<Param name="fade_type" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_find_direction" func="yes">
+			<Overload retVal="" descr="Get the direction from one location or object to another.
+			This intrinsic is aliased under the name 'direction_from'; they are both equivalent in Exult.
+			Has a multitude of options, see the main Usecode documentation.">
+				<Param name="object_or_[coordinates]" />
+				<Param name="object_or_[coordinates]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_find_nearby_avatar" func="yes">
+			<Overload retVal="" descr="Searches a large area around the avatar looking for other objects of the specified shape.
+			Returns an array containing all objects of the given shape that are located within 192 tiles of the avatar.
+			This array is sorted from right to left, closest first.
+			You cannot find eggs, barges, invisible or transparent objects with this intrinsic.">
+				<Param name="shape" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_find_nearby" func="yes">
+			<Overload retVal="" descr="Searches a specified area looking for objects matching a given criteria.
+			The mask value controls what can be found; using the proper mask, you can find eggs, barges,
+			invisible or transparent objects with this intrinsic.
+			Has a multitude of options, see the main Usecode documentation.">
+				<Param name="object_or_[coordinates]" />
+				<Param name="shape" />
+				<Param name="distance_in_tiles" />
+				<Param name="mask" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_find_nearest" func="yes">
+			<Overload retVal="object reference" descr="Searches the area around a given object looking for other objects of a specified type.
+			You cannot find eggs, barges, invisible or transparent objects with this intrinsic.">
+				<Param name="object" />
+				<Param name="shape" />
+				<Param name="distance_in_tiles" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_find_object" func="yes">
+			<Overload retVal="" descr="Finds the first object matching the search criteria.
+			Has a multitude of options, see the main Usecode documentation.">
+				<Param name="object_or_[coordinates]" />
+				<Param name="shape" />
+				<Param name="distance_in_tiles" />
+				<Param name="mask" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_fire_projectile" func="yes">
+			<Overload retVal="" descr="Causes the given object to fire a high-speed missile in the supplied direction.">
+				<Param name="object_source" />
+				<Param name="direction" />
+				<Param name="shape_of_projectile" />
+				<Param name="attempt_points" />
+				<Param name="weapon_shape_for_stats" />
+				<Param name="ammo_shape_for_stats" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_flash_mouse" func="yes">
+			<Overload retVal="" descr="Momentarily changes the mouse cursor to another shape.">
+				<Param name="cursor_number" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_game_hour" func="yes">
+			<Overload retVal="int" descr="Returns the game hour in 24 hour format.
+			hour = UI_game_hour();">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_game_minute" func="yes">
+			<Overload retVal="int" descr="Returns the game minute in 0-59 format.
+			minute = UI_game_minute();">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_alignment" func="yes">
+			<Overload retVal="int" descr="Returns a number describing the NPC's attitude towards the avatar.
+			Can be one of the following values:
+			0 Neutral, 1 Good, 2, Evil, 3 Chaotic">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_array_size" func="yes">
+			<Overload retVal="int" descr="If supplied with a valid array, returns the number of elements in the array;
+			otherwise, returns 1.">
+				<Param name="array_name" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_attack_mode" func="yes">
+			<Overload retVal="int" descr="Returns a numeric value specifying how the NPC behaves in combat. Possible values are:
+			NEAREST = 0 WEAKEST = 1 STRONGEST = 2 BERSERK = 3 PROTECT = 4
+			DEFEND = 5 FLANK = 6 FLEE = 7 RANDOM = 8 MANUAL = 9">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_avatar_ref" func="yes">
+			<Overload retVal="" descr="Gets an object reference to the avatar.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_barge" func="yes">
+			<Overload retVal="" descr="Checks the barge upon which the supplied object is on.
+			Returns zero if no valid object is passed, or if the object is not lying on a barge.
+			Otherwise, returns the object reference of the barge (shape 961) object upon which the supplied object lies.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_body_npc" func="yes">
+			<Overload retVal="" descr="Inspects what NPC is associated with the given dead body.
+			If the supplied object is the dead body of an NPC, returns the NPC's number,
+			as reported by get_npc_num intrinsic call; otherwise, returns zero.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_container" func="yes">
+			<Overload retVal="object" descr="Gets the container of the supplied object.
+			Return is zero if the object is directly in the game world,
+			or an object reference to its immediate container otherwise.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_cont_items" func="yes">
+			<Overload retVal="object array" descr="Looks for all objects matching a given search criteria that are contained in the supplied object.
+			UI_get_cont_items(AVATAR, SHAPE_SPINDLE_OF_THREAD, QUALITY_ANY, FRAME_ANY);">
+				<Param name="object_to_search" />
+				<Param name="shape" />
+				<Param name="quality" />
+				<Param name="frame" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_dead_party" func="yes">
+			<Overload retVal="array" descr="Gets a list of all dead party members near a given object.
+			Returns an array containing object references to the bodies of all dead party members
+			within 50 tiles of the given object, or zero if no party members were found.
+			Not used in SI Usecode.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_distance" func="yes">
+			<Overload retVal="int" descr="Gets the distance between two objects.
+			Returns the distance between the two objects, or zero if one or both of the parameters is not a valid object.">
+				<Param name="object_1" />
+				<Param name="object_2" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_item_flag" func="yes">
+			<Overload retVal="int" descr="Inspects the chosen flag of the given object.
+			met = UI_get_item_flag(CELLIA, MET);">
+				<Param name="object" />
+				<Param name="flag" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_item_frame" func="yes">
+			<Overload retVal="int" descr="Gets the current frame of the desired object, without the rotation bit.
+			Returns frame number from 0-31.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_item_frame_rot" func="yes">
+			<Overload retVal="int" descr="Sets the current frame of the desired object, preserving the rotation bit.
+			Returns frame number from 0-63.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_item_quality" func="yes">
+			<Overload retVal="int" descr="Gets the quality of the desired object.
+			Returns the quality of the object if it has it, zero otherwise.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_item_quantity" func="yes">
+			<Overload retVal="int" descr="Gets the quantity of the desired object.">
+				<Param name="object" />
+				<Param name="optional_unknown_parameter" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_item_shape" func="yes">
+			<Overload retVal="int" descr="Gets the current shape of the desired object.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_item_weight" func="yes">
+			<Overload retVal="int" descr="Checks an object's weight.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_lift" func="yes">
+			<Overload retVal="int" descr="Gets how far above the ground the object is.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_map_num" func="yes">
+			<Overload retVal="int" descr="Checks which map an object is in.
+			Returns the map in which the object is located, or -1 if the object is nowhere.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_music_track" func="yes">
+			<Overload retVal="int" descr="If music is enabled and a song is playing, returns the track number of the current song.
+			Otherwise, return is -1.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_npc_id" func="yes">
+			<Overload retVal="" descr="Retrieves a NPC's identity. This identity has no real effect other than that given to it by usecode.
+			Typically used to give spawned generic NPCs like Moonshade's Rangers consistent behavior.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_npc_name" func="yes">
+			<Overload retVal="string" descr="Gets the name of one or more objects.
+			Despite the name, this intrinsic can be called for any object, not just NPCs;
+			for non-NPCs, the return is the text displayed when you click the object.">
+				<Param name="object_or_object_array" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_npc_number" func="yes">
+			<Overload retVal="int" descr="Returns the NPC's number.
+			This is a negative number for all 'true' NPCs, -356 for the avatar,
+			1 for monsters or zero for anything that is not a valid NPC.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_npc_object" func="yes">
+			<Overload retVal="int" descr="Gets the NPC object references of one or more NPC numbers.">
+				<Param name="npc_or_npc_array" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_npc_prop" func="yes">
+			<Overload retVal="int" descr="Gets the current value of an object's or NPC's property.
+			Despite the name, this intrinsic can also be called for any object,
+			although most properties will be unavailable for anything but NPCs.">
+				<Param name="object" />
+				<Param name="property" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_npc_warmth" func="yes">
+			<Overload retVal="int" descr="Inspects the warmth given by a NPC's equipment.
+			Returns the combined warmth given by all objects worn by the NPC,
+			or -75 if supplied with anything but a valid NPC.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_object_position" func="yes">
+			<Overload retVal="int[3]" descr="Gets the current location the desired object.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_oppressor" func="yes">
+			<Overload retVal="actor" descr="Gets whoever is attacking the supplied NPC.
+			This oppressor can be set through usecode, but it is also automatically set
+			to whomever has last attacked (caused damage to) the supplied NPC.
+			It is also set whenever an NPC acquires a new target -- this NPC will be set
+			as its target's oppressor.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_party_list2" func="yes">
+			<Overload retVal="array" descr="Gets a list of all party members.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_party_list" func="yes">
+			<Overload retVal="array" descr="Gets a list of all party members.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_random" func="yes">
+			<Overload retVal="" descr="Generates a random number, similar to rolling a dice of the given side.
+			Returns zero if max is zero; otherwise, a random number ranging from 1 to max.">
+				<Param name="max" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_readied" func="yes">
+			<Overload retVal="object" descr="Inspects the given equipment slot in an NPC.">
+				<Param name="npc" />
+				<Param name="spot" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_schedule_type" func="yes">
+			<Overload retVal="" descr="Gets the current schedule of an NPC.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_skin_colour" func="yes">
+			<Overload retVal="int" descr="Obtains the avatar's skin color.
+			Returns a numeric value describing the avatar's skin color.
+			The return values are determined by a table in 'avatar_data.txt'.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_speech_track" func="yes">
+			<Overload retVal="int" descr="Determines the currently playing speech track.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_temperature" func="yes">
+			<Overload retVal="int" descr="Inspects a NPC's temperature.
+			The NPC's temperature changes over time depending on whether or not his FREEZE flag is set.
+			Returns a numeric value in the 0-63 range specifying how cold the NPC is;
+			0 being normal temperature and 63 being freezing cold.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_temperature_zone" func="yes">
+			<Overload retVal="int" descr="Inspects a NPC's temperature zone.
+			The temperature zone is a grouping of temperature ranges that determine how 
+			the NPC is affected by the cold. Like the NPC's temperature,
+			it changes over time depending on whether or not his FREEZE flag is set.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_timer" func="yes">
+			<Overload retVal="int" descr="Gets how many hours elapsed since the timer was set.
+			If the specified timer has been initialized by a previous call to 'UI_set_timer' intrinsic,
+			the return is the number of hours since the initialization (or reinitialization)
+			of the timer. Uninitialized timers return a random number in the 0-12 hour range.
+			if (UI_get_timer(MAKE_CLOAK_TIMER) < 23) // Cloak not ready response">
+				<Param name="timer" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_usecode_fun" func="yes">
+			<Overload retVal="int" descr="Gets the usecode function number of an object.
+			This takes into consideration a NPC's assigned function (if any) and 
+			the correct shape <> function mapping for shapes > 1024.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_weapon" func="yes">
+			<Overload retVal="int" descr="Inspect what type of weapon an NPC is using.
+			Returns zero if no weapon, one- or two-handed, is wielded by the NPC.
+			Otherwise, the shape in 'SHAPES.VGA' of the weapon being used.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_get_weather" func="yes">
+			<Overload retVal="int" descr="Returns the current weather state. Return values are:
+			CLEAR_WEATHER = 0 No clouds, no precipitation.
+			SNOWING = 1 Snowing.
+			RAIN = 2 Raining.
+			SPARKLE = 3 Magical storm, causes magic to fail.
+			FOG = 4 Nothing happens.
+			OVERCAST = 5 Light cloud cover.
+			CLOUDY = 6 Heavy cloud cover.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_give_last_created" func="yes">
+			<Overload retVal="" descr="Gives the last item in the 'last created' stack to the specified container or NPC.
+			This intrinsic ignores volume, and is quite likely to succeed; 
+			the given object is popped from the 'last created' stack only if the intrinsic succeeds.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_halt_scheduled" func="yes">
+			<Overload retVal="" descr="Terminates usecode scripts that animate the supplied object. 
+			Scripts that include the 'nohalt' command are not affected by this intrinsic.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_has_spell" func="yes">
+			<Overload retVal="bool" descr="Checks if a spellbook has one particular spell.
+			Returns true if the supplied object is a spellbook and contains the spell; false otherwise.">
+				<Param name="object" />
+				<Param name="spell_number" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_in_combat" func="yes">
+			<Overload retVal="bool" descr="Checks if the avatar is in combat.
+			Returns true if the avatar is in combat mode, false otherwise.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_infravision" func="yes">
+			<Overload retVal="" descr="Toggles infravision for the given NPC. 
+			Only effects party members.">
+				<Param name="npc" />
+				<Param name="on_or_off" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_in_gump_mode" func="yes">
+			<Overload retVal="bool" descr="Returns 'true' if showing gumps, 'false' otherwise.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_init_conversation" func="yes">
+			<Overload retVal="" descr="Initializes the face information for a conversation.
+			In Exult, it is usually safe to skip it.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_input_numeric_value" func="yes">
+			<Overload retVal="int" descr="Prompts the player for numerical input with the bar slider.">
+				<Param name="min" />
+				<Param name="max" />
+				<Param name="step" />
+				<Param name="starting_value" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_in_usecode" func="yes">
+			<Overload retVal="bool" descr="Checks if an object is currently executing any usecode scripts.
+			Returns true if there are any scripts for the specified object, false otherwise.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_in_usecode_path" func="yes">
+			<Overload retVal="bool" descr="Checks whether or not the actor is transversing a path due to path_run_usecode or si_path_run_usecode intrinsics.
+			Returns true if the NPC is still walking a usecode path, false otherwise.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_is_dead" func="yes">
+			<Overload retVal="" descr="Checks if the NPC is dead or alive.
+			This is equivalent to checking if the 'DEAD' flag is set.
+			Returns true if the NPC is dead, false otherwise.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_is_dest_reachable" func="yes">
+			<Overload retVal="bool" descr="Checks if a NPC can walk from its present location to a specified position.
+			Returns true if the NPC can walk to the supplied destination, false otherwise.">
+				<Param name="npc" />
+				<Param name="[coordinates]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_is_not_blocked" func="yes">
+			<Overload retVal="bool" descr="Checks if there is enough room for a given shape in the specified location.
+			If there is enough room in the given location for an object of the given shape and frame, returns true; otherwise, returns false.">
+				<Param name="[coordinates]" />
+				<Param name="shape" />
+				<Param name="frame" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_is_npc" func="yes">
+			<Overload retVal="bool" descr="Determines if a given object is an NPC.
+			Returns true if the object is an NPC, false otherwise.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_is_on_keyring" func="yes">
+			<Overload retVal="bool" descr="Checks if a key is in the keyring.
+			Note that the keyring is a global object;
+			multiple keyrings will share the same list of keys.">
+				<Param name="quality" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_is_pc_female" func="yes">
+			<Overload retVal="bool" descr="Determines the avatar's gender.
+			Returns true if the avatar is a woman, false otherwise.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_is_pc_inside" func="yes">
+			<Overload retVal="bool" descr="Determines if the avatar has a roof over his head.
+			Returns true if there is a roof above the avatar's head, false otherwise.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_is_readied" func="yes">
+			<Overload retVal="bool" descr="
+			For SI, it is better to use 'get_readied' intrinsic instead.
+			Returns 'true' if an object with shape 'shape' and frame 'frame'
+			is readied in ready spot 'spot' of 'npc', 'false' otherwise.
+			'frame' can be the wildcard 'FRAME_ANY'.">
+				<Param name="npc" />
+				<Param name="spot" />
+				<Param name="shape" />
+				<Param name="frame" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_is_water" func="yes">
+			<Overload retVal="bool" descr="Determines if a given tile or object is a water tile.
+			Returns true if the specified tile or object is a water tile, false otherwise.">
+				<Param name="[x, y, z]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_item_say" func="yes">
+			<Overload retVal="" descr="Causes text to be displayed near the object.
+			Does not have an intelligence level check.">
+				<Param name="object" />
+				<Param name="&quot;text&quot;" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_kill_npc" func="yes">
+			<Overload retVal="" descr="Kills the specified victim.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_lightning" func="yes">
+			<Overload retVal="" descr="Causes a lightning effect. The screen flashes, and the corresponding sound effect is played.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_mark_virtue_stone" func="yes">
+			<Overload retVal="" descr="Imprints a virtue stone with its current location.
+			Any subsequent calls to recall_virtue_stone that target that same stone will
+			teleport the avatar's party to this stored location.
+			The stored location includes the map where the stone is.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_modify_schedule" func="yes">
+			<Overload retVal="" descr="Changes the schedule table of an NPC for the desired time period.
+			This new schedule is persistent across save games.
+			The NPC will execute his/her new schedule in the map he/she currently resides when the time comes.">
+				<Param name="npc" />
+				<Param name="day_part" />
+				<Param name="activity" />
+				<Param name="[x, y]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_mouse_exists" func="yes">
+			<Overload retVal="bool" descr="Determines if a mouse exists.
+			Exult always returns true;
+			the original games will return true if a mouse if present, false otherwise.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_move_object" func="yes">
+			<Overload retVal="" descr="Moves the specified object to a new location in the game world.
+			This move is instantaneous, and is often used for teleportation in the original usecode.
+			UI_move_object(PARTY, [1500, 2950, 0], false);">
+				<Param name="object" />
+				<Param name="[coordinates]" />
+				<Param name="move_sleeping" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_nap_time" func="yes">
+			<Overload retVal="" descr="Makes the avatar lay down to sleep in the specified bed.
+			What constitutes a bed is currently hard-coded (as of 2009/02/27).
+			Once the avatar reaches the bed, Exult will call usecode function 0x622.
+			If the bed is occupied, causes one of the party members to pop up and say so.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_npc_nearby2" func="yes">
+			<Overload retVal="bool" descr="Finds out if the desired object is nearby.
+			In this context, 'nearby' means within 40 tiles of the avatar.
+			Note that, despite the name, this intrinsic is valid for all objects, not just NPCs.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_npc_nearby" func="yes">
+			<Overload retVal="" descr="Finds out if the desired object is on screen and can act.
+			An NPC is considered able to act if it is not asleep, paralyzed or dead;
+			other objects are always considered able to act.
+			Note that, despite the name, this intrincis can also be used for objects.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_obj_sprite_effect" func="yes">
+			<Overload retVal="" descr="Creates a sprite effect from 'SPRITES.VGA'.
+			This sprite effect is tied to 'obj'; if 'obj' moves, the sprite will move along.
+			UI_obj_sprite_effect(THOXA, SPRITE_WHITE_LIGHTNING, 0, 0, 0, 0, 0, -1);">
+				<Param name="object" />
+				<Param name="sprite" />
+				<Param name="relative_x" />
+				<Param name="relative_y" />
+				<Param name="velocity_x" />
+				<Param name="velocity_Y" />
+				<Param name="starting_frame" />
+				<Param name="repetitions" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_on_barge" func="yes">
+			<Overload retVal="bool" descr="Determines if the entire party is inside the same barge as the avatar.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_part_of_day" func="yes">
+			<Overload retVal="" descr="Gets the number of 3-hour periods that have elapsed in full since midnight.
+			MIDNIGHT = 0 EARLY = 1 DAWN = 2 MORNING = 3
+			NOON = 4 AFTERNOON = 5 EVENING = 6 NIGHT = 7">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_path_run_usecode" func="yes">
+			<Overload retVal="bool" descr="Causes the avatar to walk to a location and
+			execute the specified usecode function when he/she arrives at the destination.
+			If a path cannot be found for the destination, no usecode will be executed unless
+			a call to set_path_failure intrinsic is made before returning from usecode.
+			
+			The avatar can be prevented from reaching his/her destination simply by moving away
+			from the path; this will cancel the effects of the intrinsic, and will 
+			cause the usecode function set by set_path_failure to be called.
+			If you want the path to be uninterruptible, the avatar's DONT_MOVE flag must
+			be set (this is flag 22 in BG and 16 in SI).
+
+			The other party members will follow the avatar towards the destination.">
+				<Param name="[x, y, z]" />
+				<Param name="function" />
+				<Param name="object" />
+				<Param name="event" />
+				<Param name="si_mode" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_play_music" func="yes">
+			<Overload retVal="" descr="Plays the specified song.
+			If supplied with a valid object or NPC that is on the game world,
+			this intrinsic will also display the sprite effect # 24 (musical notes).
+			UI_play_music(45, item); // xylophone">
+				<Param name="track" />
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_play_sound_effect2" func="yes">
+			<Overload retVal="" descr="Causes an object to generate a sound effect.
+			The sound intensity decrease as the avatar gets farther away from this object.">
+				<Param name="track" />
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_play_sound_effect" func="yes">
+			<Overload retVal="" descr="Plays a sound effect.">
+				<Param name="track" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_pop_answers" func="yes">
+			<Overload retVal="" descr="Clears all current conversation options and restores the stored conversation options, if any.
+			The restored dialog options are those stored by the last call to UI_push_answers intrinsic.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_printf" func="yes">
+			<Overload retVal="string" descr="Prints formatted text to 'stdout'.
+			Prints an array of strings. The first element is the 'format' string.
+			The format string gives the basic text, and has a placeholder for each
+			of the other elements of the array;
+			each element past the first writes its text at the next available placeholder.
+			Placeholders are the '%s' sequence, without the single quotes,
+			embedded in the format string.
+			UI_printf([&quot;The shape clicked on is %s&quot;, UI_get_item_shape(target)]);">
+				<Param name="[array]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_push_answers" func="yes">
+			<Overload retVal="" descr="Stores the current conversation options and clears all choices.
+			The dialog options are stored in a LIFO stack that persists until the dialog ends;
+			before that point, the stored options can be retrieved with a call to UI_pop_answers intrinsic.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_recall_virtue_stone" func="yes">
+			<Overload retVal="" descr="Teleports the party to the virtue stone's stored location. The stone is forcibly given to the avatar if needed.">
+				<Param name="object" />
+				<Param name="move_sleeping" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_reduce_health" func="yes">
+			<Overload retVal="" descr="Causes a fixed amount of damage of the specified type to a target.
+			This intrinsic ignores armor and armor-granted immunities.">
+				<Param name="object" />
+				<Param name="hit_points" />
+				<Param name="type" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_remove_all_spells" func="yes">
+			<Overload retVal="" descr="Removes all spells from the desired spellbook.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_remove_answer" func="yes">
+			<Overload retVal="" descr="Deprecated; use Usecode C's '(remove)' construct instead.
+			Removes the supplied strings from the dialog options available to the player.">
+				<Param name="&quot;answer&quot;" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_remove_cont_items" func="yes">
+			<Overload retVal="int removed" descr="Removes the count of the shape, quality and frame that are contained by the object.
+			'unknown' is an unknown flag which is ignored by Exult;
+			I think it is safe to omit it from the parameter list, but I am not sure.">
+				<Param name="object" />
+				<Param name="count" />
+				<Param name="shape" />
+				<Param name="quality" />
+				<Param name="frame" />
+				<Param name="unknown" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_remove_from_area" func="yes">
+			<Overload retVal="" descr="Scans a rectangular area for objects matching the given criteria and deletes all found objects.">
+				<Param name="shape" />
+				<Param name="frame" />
+				<Param name="[upper_left x, y]" />
+				<Param name="[lower_right x, y]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_remove_from_keyring" func="yes">
+			<Overload retVal="bool" descr="Removes a key from the keyring.
+			Note that the keyring is a global object; multiple keyrings will share the same list of keys.">
+				<Param name="quality" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_remove_from_party" func="yes">
+			<Overload retVal="" descr="Removes the specified NPC from the avatar's party.
+			The NPC's alignment is changed to NEUTRAL.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_remove_item" func="yes">
+			<Overload retVal="" descr="Removes the object from the game world and from the 'last created' stack.
+			If the object is not an NPC, it will de deleted; NPCs will still exist.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_remove_npc" func="yes">
+			<Overload retVal="" descr="Removes the NPC from the game world.
+			The NPC is effectively placed in 'limbo', and has its schedule set to 'WAIT'.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_remove_npc_face0" func="yes">
+			<Overload retVal="" descr="Removes whatever face is being shown in slot 0 (top).">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_remove_npc_face1" func="yes">
+			<Overload retVal="" descr="Removes whatever face is being shown in slot 1 (bottom).">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_remove_npc_face" func="yes">
+			<Overload retVal="" descr="Hides the specified face if it is being shown.">
+				<Param name="face" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_remove_party_items" func="yes">
+			<Overload retVal="bool" descr="Looks through the party's possessions and deletes
+			a specified amount of objects matching a given search criteria.
+			This function is an all-or-nothing function:
+			it will delete all requested objects or none at all if it found less objects than
+			the amount that was requested for deletion.">
+				<Param name="count" />
+				<Param name="shape" />
+				<Param name="quality" />
+				<Param name="frame" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_remove_spell" func="yes">
+			<Overload retVal="bool" descr="Removes the specified spell from the desired spellbook.">
+				<Param name="object" />
+				<Param name="spell_number" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_reset_conv_face" func="yes">
+			<Overload retVal="" descr="Unlisted in Usecode documentation.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_restart_game" func="yes">
+			<Overload retVal="" descr="Stops the music and restarts the game from the last save.
+			The original games started from the beginning of the game;
+			Exult does it differently to preserve the last quicksave.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_resurrect" func="yes">
+			<Overload retVal="npc" descr="Brings a dead body back to life.
+			If 'object' is the body of an NPC, resurrects the NPC and
+			returns a reference to the NPC; otherwise, returns a null ('0') reference.
+			All of contents of the body will be returned to the resurrected NPC.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_resurrect_npc" func="yes">
+			<Overload retVal="" descr="Brings the desired NPC back to life.
+			If the NPC has a body, this body will be completely ignored; moreover,
+			the NPC will be back without any equipment that was left on his body when he died.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_revert_schedule" func="yes">
+			<Overload retVal="" descr="Reverts the schedules of a NPC to those stored in 'STATIC/schedule.dat'.
+			Can be risky for NPCs not in the original games.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_roll_to_win" func="yes">
+			<Overload retVal="" descr="">
+				<Param name="" />
+				<Param name="" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_run_endgame" func="yes">
+			<Overload retVal="" descr="Runs the endgame.
+			Boolean value specifying the manner in which the game was finished.
+			If it is true, will set the game-completion flag that allows the endgame to be viewed from the title screen.">
+				<Param name="black_gate_destroyed" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_run_schedule" func="yes">
+			<Overload retVal="" descr="Forces an NPC to return to his/her regularly scheduled activities.
+			In SI, typically used after STARTED_TALKING to resume work when the conversation ends.">
+				<Param name="npc" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_save_pos" func="yes">
+			<Overload retVal="" descr="Saves the current position/map of an object.
+			This persists across save games, but there is only one 'slot' in which the position is saved.
+			Therefore, only the last stored position is available.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_select_from_menu2" func="yes">
+			<Overload retVal="int" descr="Makes the player choose one answer from all dialog options currently being displayed.
+			Returns the index (ranging from 1 to n) of the chosen dialog option.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_select_from_menu" func="yes">
+			<Overload retVal="string" descr="Makes the player choose one answer from all dialog options currently being displayed.
+			Returns the chosen dialog option.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_alignment" func="yes">
+			<Overload retVal="" descr="Sets an NPC's attitude towards the avatar.
+			This change forces the NPC to reevaluate his targets, and may stop the NPC from fleeing.">
+				<Param name="npc" />
+				<Param name="alignment" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_attack_mode" func="yes">
+			<Overload retVal="" descr="Changes the NPC's attack mode to the desired value.
+			NEAREST = 0 WEAKEST = 1 STRONGEST = 2 BERSERK = 3 PROTECT = 4
+			DEFEND = 5 FLANK = 6 FLEE = 7 RANDOM = 8 MANUAL = 9">
+				<Param name="npc" />
+				<Param name="mode" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_barge_dir" func="yes">
+			<Overload retVal="" descr="If 'object' is a barge object, sets its direction (along with all objects laying on 'object') to 'direction'.
+			'direction' can be one of the constants defined for 'find_direction' intrinsic.">
+				<Param name="object" />
+				<Param name="direction" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_camera" func="yes">
+			<Overload retVal="" descr="Centers the screen on a given object.
+			If it is an NPC, the camera will follow that NPC.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_conversation_slot" func="yes">
+			<Overload retVal="" descr="Changes the active conversation slot.">
+				<Param name="0_or_1" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_intercept_item" func="yes">
+			<Overload retVal="" descr="Preassigns the return of the next 'UI_click_on_item' intrinsic' call.
+			Can be just an object or coordinates. See Usecode documentation for details.">
+				<Param name="mixed_object[4]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_item_flag" func="yes">
+			<Overload retVal="" descr="Sets the desired flag for the given object.
+			Many flags have immediate effects when set; most do not.">
+				<Param name="object" />
+				<Param name="flag" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_item_frame" func="yes">
+			<Overload retVal="" descr="Sets the current frame of the desired object, preserving the rotation bit.
+			UI_set_item_frame(item, FRAME_BLUE_BURNER);">
+				<Param name="object" />
+				<Param name="frame" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_item_frame_rot" func="yes">
+			<Overload retVal="" descr="Sets the current frame of the desired object; does not preserve the rotation bit.">
+				<Param name="object" />
+				<Param name="frame" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_item_quality" func="yes">
+			<Overload retVal="" descr="Sets the quality of the desired object.
+			Shape must be set to Quality Flags in Exult Studio in some cases.">
+				<Param name="object" />
+				<Param name="quality" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_item_quantity" func="yes">
+			<Overload retVal="bool" descr="Sets the quantity of the desired object.
+			The object's quantity is changed only if the object has it.">
+				<Param name="object" />
+				<Param name="quantity" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_item_shape" func="yes">
+			<Overload retVal="" descr="Changes the shape of an object.">
+				<Param name="object" />
+				<Param name="shape" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_last_created" func="yes">
+			<Overload retVal="" descr="Moves the object from the game map or container where it was and places it in the 'last created' stack. 
+			This intrinsic does nothing if the specified object is already in the aforementioned stack.">
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_lift" func="yes">
+			<Overload retVal="" descr="Moves the object on the vertical direction to a desired height off the ground.">
+				<Param name="object" />
+				<Param name="lift" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_light" func="yes">
+			<Overload retVal="" descr="Marks the given light source as being added to or removed from its containing NPC.">
+				<Param name="object" />
+				<Param name="on_or_off" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_new_schedules" func="yes">
+			<Overload retVal="" descr="Changes the schedule table of an NPC. Accepts arrays after NPC.
+			This new schedule table is persistent across save games. 
+			The NPC will execute his/her new schedules in the map he/she currently resides.">
+				<Param name="npc" />
+				<Param name="day_part" />
+				<Param name="activity" />
+				<Param name="location" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_npc_id" func="yes">
+			<Overload retVal="" descr="Changes an NPC's identity.
+			This identity has no real effect other than that given to it by usecode.
+			Effectively this is the NPC's quality number.
+			Used for giving Pikemen and other generic NPCs different conversations.">
+				<Param name="actor" />
+				<Param name="quality" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_npc_name" func="yes">
+			<Overload retVal="" descr="Changes the name of an NPC.">
+				<Param name="actor" />
+				<Param name="&quot;new_name&quot;" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_npc_prop" func="yes">
+			<Overload retVal="" descr="Changes an object's or NPC's property by the specified value.
+			Despite the name, this intrinsic can also be called for any object,
+			although most properties will be unavailable for anything but NPCs.
+			Note the delta does not overwrite but adds or subtracts from the existing value.">
+				<Param name="object" />
+				<Param name="property" />
+				<Param name="delta" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_opponent" func="yes">
+			<Overload retVal="" descr="Makes the supplied NPC target the desired object.
+			This does not make the NPC attack unless his schedule is IN_COMBAT.
+			This intrinsic will reevaluate if the NPC's oppressor is actually attacking him,
+			and will invalidate the oppressor if not.">
+				<Param name="actor" />
+				<Param name="object" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_oppressor" func="yes">
+			<Overload retVal="" descr="Sets the supplied NPCs oppressor to another NPC.">
+				<Param name="actor" />
+				<Param name="oppressor" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_orrery" func="yes">
+			<Overload retVal="" descr="Sets the position of the planets in the orrery at Moonglow.
+			The intrinsic tries to find 'Planet Britania' near the specified location;
+			it will delete the nearby planets, if any, and create new ones in the required positions.">
+				<Param name="[coordinates]" />
+				<Param name="state_0_to_9" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_path_failure" func="yes">
+			<Overload retVal="" descr="Sets usecode to be called if an NPC fails to reach its destination.
+			This intrinsic must be used after a call to either, path_run_usecode or si_path_run_usecode intrinsics,
+			and will affect only the NPC affected by that call.
+			If, for any reason, the NPC in question cannot reach the destination,
+			the usecode function assigned by this intrinsic will be run.">
+				<Param name="function" />
+				<Param name="object" />
+				<Param name="event" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_polymorph" func="yes">
+			<Overload retVal="" descr="Makes an NPC take a different, temporary shape.
+			The polymorphed shape is persistent across save games.
+			The NPC can be returned to its normal shape by unsetting the NPC's POLYMORPH flag
+			with a call to clear_item_flag intrinsic.">
+				<Param name="actor" />
+				<Param name="shape" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_schedule_type" func="yes">
+			<Overload retVal="" descr="Sets the current schedule of an NPC.">
+				<Param name="actor" />
+				<Param name="activity" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_temperature" func="yes">
+			<Overload retVal="" descr="Changes a NPC's temperature.
+			The NPC's temperature changes over time depending on whether or not his FREEZE flag is set.
+			Temperature is in 0-63 range specifying how cold the NPC is;
+			0 being normal temperature and 63 being freezing cold.">
+				<Param name="actor" />
+				<Param name="how_cold" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_time_palette" func="yes">
+			<Overload retVal="" descr="Resets palette to default palette, based on time of day and number of lights.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_timer" func="yes">
+			<Overload retVal="" descr="Resets a timer to the current game time, and increments hourly.">
+				<Param name="timer" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_to_attack" func="yes">
+			<Overload retVal="" descr="Schedules a NPC to attack the object with a given weapon.
+			This intrinsic does not animate the NPC in any way;
+			the scheduled attack only emulates the actual hit with the selected weapon.
+			The actual attack is triggered by a script; in an Usecode C script,
+			use the 'attack' command to actually perform the attack.">
+				<Param name="attacker" />
+				<Param name="mixed[4]" />
+				<Param name="target" />
+				<Param name="weapon" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_usecode_fun" func="yes">
+			<Overload retVal="" descr="Assigns a new usecode function to an NPC.">
+				<Param name="npc" />
+				<Param name="function" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_set_weather" func="yes">
+			<Overload retVal="" descr="Modifies the current weather to the desired type.
+			The new weather lasts for 15 game minutes.">
+				<Param name="weather" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_show_npc_face0" func="yes">
+			<Overload retVal="" descr="Displays a face onscreen for conversations.
+			The face is a shape from 'FACES.VGA'.
+			This intrinsic always uses slot 0 for the new face.">
+				<Param name="face" />
+				<Param name="frame" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_show_npc_face1" func="yes">
+			<Overload retVal="" descr="Displays a face onscreen for conversations.
+			The face is a shape from 'FACES.VGA'.
+			This intrinsic always uses slot 1 for the new face.">
+				<Param name="face" />
+				<Param name="frame" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_show_npc_face" func="yes">
+			<Overload retVal="" descr="Displays a face onscreen for conversations.
+			The face is a shape from 'FACES.VGA'.
+			This intrinsic finds a free slot to display the face in or
+			uses the second slot if there are no free slots.">
+				<Param name="face" />
+				<Param name="frame" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_si_display_map" func="yes">
+			<Overload retVal="" descr="Displays the specified map on screen.
+			This is converted into a shape in 'SPRITES.VGA' in a hard-coded manner.">
+				<Param name="map_number" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_si_path_run_usecode" func="yes">
+			<Overload retVal="" descr="Causes an NPC to walk to a location and 
+			execute the specified usecode function when he/she arrives at the destination.
+			If a path cannot be found for the destination,
+			no usecode will be executed unless a call to set_path_failure intrinsic
+			is made before returning from usecode.
+
+			The avatar can be prevented from reaching his/her destination simply by
+			moving away from the path; similarly, a scheduled event or scripted event
+			may prevent an NPC from reaching his/her destination.
+			In these cases, the effects of the intrinsic will be cancelled,
+			and the usecode function set by set_path_failure will be called.
+			If you want the path to be uninterruptible, the NPC's DONT_MOVE flag must be set
+			(this is flag 22 in BG and 16 in SI).">
+				<Param name="actor" />
+				<Param name="[coordinates]" />
+				<Param name="event" />
+				<Param name="item" />
+				<Param name="function" />
+				<Param name="always_call_function" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_sit_down" func="yes">
+			<Overload retVal="" descr="Causes the specified NPC to sit on the given chair.
+			'Chair' must be a chair/seat shape (currently, hardcoded to 873/292).
+			For barge seats, also runs the barge usecode when everyone in the party is seated.">
+				<Param name="actor" />
+				<Param name="chair" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_sprite_effect" func="yes">
+			<Overload retVal="" descr="Displays a graphical effect at the given location.">
+				<Param name="sprite" />
+				<Param name="x" />
+				<Param name="y" />
+				<Param name="velocity_x" />
+				<Param name="velocity_Y" />
+				<Param name="starting_frame" />
+				<Param name="repetitions" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_start_speech" func="yes">
+			<Overload retVal="bool" descr="Plays the specified speech track.
+			In SI, speech also displays a full-screen face from 'FACES.VGA'.
+			Returns false if failed to play the requested speech track
+			(for example, if speech is disabled), true otherwise.">
+				<Param name="track" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_stop_arresting" func="yes">
+			<Overload retVal="" descr="Any guards approaching the avatar to arrest will stop what they are doing and will start to wander instead.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_stop_time" func="yes">
+			<Overload retVal="" descr="Stops time for all but the avatar and party.
+			Parameter is how long the effect should last.
+			The actual duration, in seconds, is equal to one fourth of this value.">
+				<Param name="time" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_summon" func="yes">
+			<Overload retVal="" descr="Creates a monster with shape 'shape'.
+			The created monster has equipment as defined in its equipment record,
+			and has a 'GOOD' alignment. If the creation is successful,
+			the return value is a reference to the monster; otherwise,
+			the return is '0'. In the originals, there was an additional 'bool' parameter,
+			but it is unimplemented in Exult.
+			The monster will be placed within five tiles of the avatar.">
+				<Param name="shape" />
+				<Param name="unknown" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_telekenesis" func="yes">
+			<Overload retVal="" descr="Deprecated; stores a usecode function for special script behavior.
+			The next script call to the stored function (e.g., 'script item call fun;')
+			will have an event ID of 'DOUBLECLICK' instead of the standard 'SCRIPTED'
+			event ID used for scripts. Since Usecode C scripts allow calling a function with
+			an event ID of your choice (e.g., 'script item call fun, DOUBLECLICK;')
+			it is best to simply ignore this intrinsic.">
+				<Param name="function" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_teleport_to_saved_pos" func="yes">
+			<Overload retVal="" descr="Teleports the avatar and party to the last saved position.
+			Note that only the last position stored by the UI_save_pos intrinsic is available.">
+				<Param name="AVATAR" />
+				<Param name="move_sleeping" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_update_last_created" func="yes">
+			<Overload retVal="object" descr="Pops the last object pushed in the 'last created' stack
+			and places it in the game map at the supplied position.
+			Note BG returns 1 if successful, but SI returns an object reference.">
+				<Param name="[coordinates]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_view_tile" func="yes">
+			<Overload retVal="" descr="Centers screen around a given tile.
+			It is usually better to use UI_display_area instead.">
+				<Param name="[x, y]" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_wearing_fellowship" func="yes">
+			<Overload retVal="bool" descr="Returns 'true' if the avatar is wearing a fellowship amulet (shape 955, frame 1), 'false' otherwise.">
+			</Overload>
+		</KeyWord>
+		<KeyWord name="UI_wizard_eye" func="yes">
+			<Overload retVal="" descr="Lets the player move the screen around, keeping the avatar in its present location.
+			Overlays sprite shape 10 over the screen.">
+				<Param name="ticks" />
+			</Overload>
+		</KeyWord>
+		
+		<KeyWord name="UNREADIED" />
+		<KeyWord name="var" />
+		<KeyWord name="void" />
+		<KeyWord name="WEAPON" />
+		
+	</AutoComplete>
+</NotepadPlus>
